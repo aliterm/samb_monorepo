@@ -6,6 +6,8 @@ import { MdDashboard } from 'react-icons/md'
 import { HiAdjustments, HiClipboardList, HiUserCircle } from 'react-icons/hi'
 
 import MasterProductComponent from './master-product'
+import MasterSupplierComponent from './master-supplier'
+import MasterWarehouseComponent from './master-warehouse'
 
 export default function MasterTab() {
   return (
@@ -14,10 +16,10 @@ export default function MasterTab() {
         <MasterProductComponent />
       </Tabs.Item>
       <Tabs.Item title="Supplier" icon={MdDashboard}>
-        <p>Ini Supplier</p>
+        <MasterSupplierComponent />
       </Tabs.Item>
       <Tabs.Item title="Warehouse" icon={HiAdjustments}>
-        <p>Ini Warehouse</p>
+        <MasterWarehouseComponent />
       </Tabs.Item>
       <Tabs.Item title="Customer" icon={HiClipboardList}>
         <p>Ini Customer</p>
