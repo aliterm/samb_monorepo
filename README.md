@@ -2,6 +2,9 @@
 
 A Simple Invetory App
 
+### Database
+First, you should create a database name by PGAdmin4 or DBeaver
+
 #### Setup
 
 Frontend
