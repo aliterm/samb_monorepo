@@ -35,7 +35,7 @@ export default function AddPenerimaanBarangDetail() {
     })
 
     setOpenModal(false)
-    router.prefetch('/penerimaan-barang')
+    router.refresh()
   }
 
   return (
