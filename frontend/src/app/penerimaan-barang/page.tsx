@@ -1,5 +1,6 @@
 import AddPenerimaanBarangDetail from './add-detail'
 import AddPenerimaanBarangHeader from './add-header'
+import ShowTableDetail from './show-table-detail'
 
 export default function PenerimaanBarangPage() {
   return (
@@ -11,6 +12,7 @@ export default function PenerimaanBarangPage() {
       </div>
       <div>
         <h3>List Penerima Barang</h3>
+        <ShowTableDetail />
       </div>
     </>
   )

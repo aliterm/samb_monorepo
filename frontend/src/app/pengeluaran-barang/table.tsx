@@ -1,13 +1,13 @@
 'use client'
 
-import { PenerimaanBarangDetail } from '@/interfaces/penerimaan-barang-detail'
+import { PengeluaranBarangDetail } from '@/interfaces/pengeluaran-barang-detail'
 import { Table } from 'flowbite-react'
 import { ComponentProps } from 'react'
 
-interface TablePenerimaanProps extends ComponentProps<'div'> {
-  data?: PenerimaanBarangDetail[]
+interface TablePengeluaranProps extends ComponentProps<'div'> {
+  data?: PengeluaranBarangDetail[]
 }
-export default function TablePenerimaanDetail({ data }: TablePenerimaanProps) {
+export default function TablePengeluaranDetail({ data }: TablePengeluaranProps) {
   return (
     <Table hoverable>
       <Table.Head>
@@ -21,15 +21,15 @@ export default function TablePenerimaanDetail({ data }: TablePenerimaanProps) {
         </Table.HeadCell>
       </Table.Head>
       <Table.Body className="divide-y">
-        {data?.map((penerimaan, key) => (
+        {data?.map((Pengeluaran, key) => (
           <Table.Row key={`customer-${key}`} className="bg-white dark:border-gray-700 dark:bg-gray-800">
             <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-              {penerimaan.trx_in_dpk}
+              {Pengeluaran.trx_out_dpk}
             </Table.Cell>
-            <Table.Cell>{penerimaan.trx_in_idf}</Table.Cell>
-            <Table.Cell>{penerimaan.trx_in_d_product_idf}</Table.Cell>
-            <Table.Cell>{penerimaan.trx_in_d_qty_dus}</Table.Cell>
-            <Table.Cell>{penerimaan.trx_in_d_qty_pcs}</Table.Cell>
+            <Table.Cell>{Pengeluaran.trx_out_idf}</Table.Cell>
+            <Table.Cell>{Pengeluaran.trx_out_d_product_idf}</Table.Cell>
+            <Table.Cell>{Pengeluaran.trx_out_d_qty_dus}</Table.Cell>
+            <Table.Cell>{Pengeluaran.trx_out_d_qty_pcs}</Table.Cell>
           </Table.Row>
         ))}
       </Table.Body>
