@@ -16,7 +16,11 @@ func main() {
 	port := os.Getenv("PORT")
 
 	e := echo.New()
-	e.Use(middleware.CORS())
+	// Enable CORS for all origins
+	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+		AllowOrigins: []string{"*"},
+		AllowMethods: []string{echo.GET, echo.HEAD, echo.PUT, echo.PATCH, echo.POST, echo.DELETE},
+	}))
 
 	routers.RegisterRoute(e)
 	config.ConnectDB()

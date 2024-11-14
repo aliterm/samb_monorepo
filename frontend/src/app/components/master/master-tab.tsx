@@ -8,6 +8,7 @@ import { HiAdjustments, HiClipboardList, HiUserCircle } from 'react-icons/hi'
 import MasterProductComponent from './master-product'
 import MasterSupplierComponent from './master-supplier'
 import MasterWarehouseComponent from './master-warehouse'
+import MasterCustomerComponent from './master-customer'
 
 export default function MasterTab() {
   return (
@@ -22,7 +23,7 @@ export default function MasterTab() {
         <MasterWarehouseComponent />
       </Tabs.Item>
       <Tabs.Item title="Customer" icon={HiClipboardList}>
-        <p>Ini Customer</p>
+        <MasterCustomerComponent />
       </Tabs.Item>
     </Tabs>
   )
