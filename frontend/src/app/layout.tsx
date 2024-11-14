@@ -8,7 +8,7 @@ const nunito = Nunito({
 })
 
 export const metadata: Metadata = {
-  title: 'SAMB Inventory',
+  title: { default: 'SAMB Inventory', template: '%s | SAMB Inventory' },
   description: 'Simple Inventory Management System',
 }
 

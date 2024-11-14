@@ -20,4 +20,6 @@ func RegisterRoute(e *echo.Echo) {
 
 	e.GET("/master-warehouse", handlers.GetMasterWarehouse)
 	e.POST("/master-warehouse", handlers.SetMasterWarehouse)
+
+	e.GET("/transaksi-penerimaan-barang", handlers.GetTransaksiPenerimaanBarang)
 }

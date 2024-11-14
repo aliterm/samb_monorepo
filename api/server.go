@@ -8,6 +8,7 @@ import (
 	_ "github.com/joho/godotenv/autoload"
 
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
 func main() {
@@ -15,6 +16,7 @@ func main() {
 	port := os.Getenv("PORT")
 
 	e := echo.New()
+	e.Use(middleware.CORS())
 
 	routers.RegisterRoute(e)
 	config.ConnectDB()
