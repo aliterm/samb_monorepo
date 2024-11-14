@@ -1,7 +1,8 @@
+'use client'
 import { Pagination, Table } from 'flowbite-react'
 import { useState } from 'react'
 
-export default function PenerimaanBarang() {
+export default function PenerimaanBarangPage() {
   const [currentPage, setCurrentPage] = useState(1)
 
   const onPageChange = (page: number) => setCurrentPage(page)

@@ -19,13 +19,13 @@ export default function SidebarComponent() {
             <Sidebar.Item href="/master/warehouse">Warehouse</Sidebar.Item>
             <Sidebar.Item href="/master/customer">Customer</Sidebar.Item>
           </Sidebar.Collapse>
-          <Sidebar.Item href="#" icon={MdFormatListBulletedAdd}>
+          <Sidebar.Item href="/penerimaan-barang" icon={MdFormatListBulletedAdd}>
             Penerimaan Barang
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={MdOutlineShoppingCartCheckout}>
+          <Sidebar.Item href="/pengeluaran-barang" icon={MdOutlineShoppingCartCheckout}>
             Pengeluaran Barang
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={BsBoxes}>
+          <Sidebar.Item href="/stock" icon={BsBoxes}>
             Stock
           </Sidebar.Item>
         </Sidebar.ItemGroup>
