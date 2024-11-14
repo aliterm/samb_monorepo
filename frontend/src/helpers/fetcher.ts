@@ -10,15 +10,14 @@ const fetcher = async <T = unknown>(params: FetcherParams): Promise<APIResponse<
       ...headers,
     }
 
-    const defaultCache: RequestCache = cache ? cache : 'force-cache'
+    // const defaultCache: RequestCache = cache ? cache : 'force-cache'
 
     const res = await fetch(process.env.NEXT_PUBLIC_API_URL + url, {
       method,
       headers: defaultHeaders,
       body,
-      cache: defaultCache,
     })
-    const json = await res.json()
+    const json = (await res.json()) as APIResponse<T>
 
     return {
       status_code: json?.status_code ?? 500,
