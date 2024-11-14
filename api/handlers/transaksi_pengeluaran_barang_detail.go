@@ -10,7 +10,6 @@ import (
 )
 
 func GetTransaksiPengeluaranBarangDetail(c echo.Context) error {
-	var pengeluaranBarangDetail []models.TransaksiPengeluaranBarangDetail
 
 	// Parse page and pageSize from query parameters
 	page, err := strconv.Atoi(c.QueryParam("page"))
@@ -30,7 +29,39 @@ func GetTransaksiPengeluaranBarangDetail(c echo.Context) error {
 	var total int64
 	config.DB.Model(&models.TransaksiPengeluaranBarangDetail{}).Count(&total)
 
-	if err := config.DB.Limit(pageSize).Offset(offset).Find(&pengeluaranBarangDetail).Error; err != nil {
+	type TransaksiPengeluaranBarangDetail struct {
+		TrxOutDPK         uint   `json:"trx_out_dpk"`
+		TrxOutIDF         uint   `json:"trx_out_idf"`
+		TrxOutDProductIdf uint   `json:"trx_out_d_product_idf"`
+		TrxOutDQtyDus     uint   `json:"trx_out_d_qty_dus"`
+		TrxOutDQtyPcs     uint   `json:"trx_out_d_qty_pcs"`
+		TrxOutNo          string `json:"trx_out_no"`
+		ProductName       string `json:"product_name"`
+		SupplierName      string `json:"supplier_name"`
+		WarehouseName     string `json:"warehouse_name"`
+		HeaderDate        string `json:"header_date"`
+	}
+
+	var pengeluaranBarangDetail []TransaksiPengeluaranBarangDetail
+
+	err = config.DB.
+		Table("transaksi_pengeluaran_barang_details as A").
+		Select("A.trx_out_dpk", "A.trx_out_id_f",
+			"A.trx_out_d_product_idf",
+			"A.trx_out_d_qty_dus", "A.trx_out_d_qty_pcs",
+			"B.trx_out_no",
+			"C.product_name", "D.supplier_name", "E.whs_name as warehouse_name",
+			"B.trx_out_date as header_date",
+		).
+		Joins("JOIN transaksi_pengeluaran_barang_headers as B ON A.trx_out_id_f = B.trx_out_pk").
+		Joins("JOIN master_products as C ON A.trx_out_d_product_idf = C.product_pk").
+		Joins("JOIN master_suppliers as D ON B.trx_out_supp_idf = D.supplier_pk").
+		Joins("JOIN master_warehouses as E ON B.whs_idf = E.whs_pk").
+		Limit(pageSize).
+		Offset(offset).
+		Scan(&pengeluaranBarangDetail).Error
+
+	if err != nil {
 		return c.JSON(http.StatusInternalServerError, map[string]string{
 			"message": "Failed to retrieve",
 		})

@@ -1,9 +1,9 @@
 import fetcher from '@/helpers/fetcher'
 import TablePengeluaranDetail from './table'
-import { PengeluaranBarangDetail } from '@/interfaces/pengeluaran-barang-detail'
+import { PengeluaranBarangDetailResponse } from '@/interfaces/pengeluaran-barang-detail'
 
 export default async function ShowTableDetail() {
-  const res = await fetcher<PengeluaranBarangDetail[]>({
+  const res = await fetcher<PengeluaranBarangDetailResponse[]>({
     method: 'GET',
     url: '/transaksi-pengeluaran-barang-detail',
   })
