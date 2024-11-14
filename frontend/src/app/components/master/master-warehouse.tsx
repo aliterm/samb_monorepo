@@ -31,7 +31,7 @@ export default function MasterWarehouseComponent() {
 
   return (
     <>
-      <h2 className="text-2xl font-bold my-5">Master Supplier</h2>
+      <h2 className="text-2xl font-bold my-5">Master Warehouse</h2>
       <div className="overflow-x-auto">
         <Table hoverable>
           <Table.Head>
@@ -43,7 +43,7 @@ export default function MasterWarehouseComponent() {
           </Table.Head>
           <Table.Body className="divide-y">
             {data?.map((warehouse, key) => (
-              <Table.Row key={key} className="bg-white dark:border-gray-700 dark:bg-gray-800">
+              <Table.Row key={`warehouse-${key}`} className="bg-white dark:border-gray-700 dark:bg-gray-800">
                 <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                   {warehouse.whs_pk}
                 </Table.Cell>

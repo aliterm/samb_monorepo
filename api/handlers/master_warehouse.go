@@ -29,7 +29,7 @@ func GetMasterWarehouse(c echo.Context) error {
 
 	// Retrieve total count of Master Warehouse
 	var total int64
-	config.DB.Model(&models.MasterProduct{}).Count(&total)
+	config.DB.Model(&models.MasterWarehouse{}).Count(&total)
 
 	if err := config.DB.Limit(pageSize).Offset(offset).Find(&warehouses).Error; err != nil {
 		return c.JSON(http.StatusInternalServerError, map[string]string{

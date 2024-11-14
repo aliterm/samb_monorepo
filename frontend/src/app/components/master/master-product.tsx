@@ -43,7 +43,7 @@ export default function MasterProductComponent() {
           </Table.Head>
           <Table.Body className="divide-y">
             {data?.map((product, key) => (
-              <Table.Row key={key} className="bg-white dark:border-gray-700 dark:bg-gray-800">
+              <Table.Row key={`product-${key}`} className="bg-white dark:border-gray-700 dark:bg-gray-800">
                 <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                   {product.product_pk}
                 </Table.Cell>
