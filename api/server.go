@@ -6,6 +6,7 @@ import (
 	"samb-api/routers"
 
 	_ "github.com/joho/godotenv/autoload"
+
 	"github.com/labstack/echo/v4"
 )
 
