@@ -5,10 +5,10 @@ import { MdDashboard } from 'react-icons/md'
 
 import { HiAdjustments, HiClipboardList, HiUserCircle } from 'react-icons/hi'
 
-import MasterProductComponent from './master-product'
-import MasterSupplierComponent from './master-supplier'
-import MasterWarehouseComponent from './master-warehouse'
-import MasterCustomerComponent from './master-customer'
+import MasterProductComponent from './product/page'
+import MasterSupplierComponent from './supplier/page'
+import MasterWarehouseComponent from './warehouse/page'
+import MasterCustomerComponent from './customer/page'
 
 export default function MasterTab() {
   return (

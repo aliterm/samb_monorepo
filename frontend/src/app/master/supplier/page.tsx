@@ -1,21 +1,20 @@
 'use client'
 
 import fetcher from '@/helpers/fetcher'
-import { MasterProduct } from '@/interfaces/master-product'
+import { MasterSupplier } from '@/interfaces/master-supplier'
 import { Table } from 'flowbite-react'
-import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
-export default function MasterProductComponent() {
-  const [data, setData] = useState<MasterProduct[] | undefined>()
+export default function MasterSupplierPage() {
+  const [data, setData] = useState<MasterSupplier[] | undefined>()
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     ;(async () => {
       setLoading(true)
-      const res = await fetcher<MasterProduct[]>({
+      const res = await fetcher<MasterSupplier[]>({
         method: 'GET',
-        url: '/master-product',
+        url: '/master-supplier',
       })
 
       if (res.data) {
@@ -31,23 +30,23 @@ export default function MasterProductComponent() {
 
   return (
     <>
-      <h2 className="text-2xl font-bold my-5">Master Product</h2>
+      <h2 className="text-2xl font-bold my-5">Master Supplier</h2>
       <div className="overflow-x-auto">
         <Table hoverable>
           <Table.Head>
-            <Table.HeadCell>Product ID</Table.HeadCell>
-            <Table.HeadCell>Product Name</Table.HeadCell>
+            <Table.HeadCell>Supplier ID</Table.HeadCell>
+            <Table.HeadCell>Supplier Name</Table.HeadCell>
             <Table.HeadCell>
               <span className="sr-only">Edit</span>
             </Table.HeadCell>
           </Table.Head>
           <Table.Body className="divide-y">
-            {data?.map((product, key) => (
-              <Table.Row key={`product-${key}`} className="bg-white dark:border-gray-700 dark:bg-gray-800">
+            {data?.map((supplier, key) => (
+              <Table.Row key={`supplier-${key}`} className="bg-white dark:border-gray-700 dark:bg-gray-800">
                 <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                  {product.product_pk}
+                  {supplier.supplier_pk}
                 </Table.Cell>
-                <Table.Cell>{product.product_name}</Table.Cell>
+                <Table.Cell>{supplier.supplier_name}</Table.Cell>
               </Table.Row>
             ))}
           </Table.Body>
