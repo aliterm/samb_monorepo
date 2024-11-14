@@ -1,11 +1,14 @@
 'use client'
 
 import { Sidebar } from 'flowbite-react'
+import { usePathname } from 'next/navigation'
+
 import { BsBoxes } from 'react-icons/bs'
-import { HiArrowSmRight, HiChartPie, HiHome, HiInbox, HiShoppingBag, HiTable, HiUser } from 'react-icons/hi'
+import { HiChartPie, HiHome } from 'react-icons/hi'
 import { MdFormatListBulletedAdd, MdOutlineShoppingCartCheckout } from 'react-icons/md'
 
 export default function SidebarComponent() {
+  const pathname = usePathname()
   return (
     <Sidebar aria-label="Sidebar with multi-level dropdown example" className="h-screen">
       <Sidebar.Items>
@@ -13,7 +16,7 @@ export default function SidebarComponent() {
           <Sidebar.Item href="/" icon={HiHome}>
             Home
           </Sidebar.Item>
-          <Sidebar.Collapse icon={HiChartPie} label="Master Data">
+          <Sidebar.Collapse open={pathname.startsWith('/master')} icon={HiChartPie} label="Master Data">
             <Sidebar.Item href="/master/product">Products</Sidebar.Item>
             <Sidebar.Item href="/master/supplier">Supplier</Sidebar.Item>
             <Sidebar.Item href="/master/warehouse">Warehouse</Sidebar.Item>
