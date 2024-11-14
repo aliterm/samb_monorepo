@@ -22,7 +22,7 @@ export default function AddPenerimaanBarangHeader() {
   } = useForm<PenerimaanBarangHeader>()
 
   const onSubmit: SubmitHandler<PenerimaanBarangHeader> = async (data) => {
-    const res = await fetcher({
+    const res = await fetcher<PenerimaanBarangHeader>({
       method: 'POST',
       url: '/add-penerimaan-barang-header',
       body: JSON.stringify({

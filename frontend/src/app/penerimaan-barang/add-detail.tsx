@@ -23,7 +23,7 @@ export default function AddPenerimaanBarangDetail() {
   } = useForm<PenerimaanBarangDetail>()
 
   const onSubmit: SubmitHandler<PenerimaanBarangDetail> = async (data) => {
-    const res = await fetcher({
+    const res = await fetcher<PenerimaanBarangDetail>({
       method: 'POST',
       url: '/add-penerimaan-barang-detail',
       body: JSON.stringify({

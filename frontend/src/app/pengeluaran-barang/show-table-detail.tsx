@@ -8,5 +8,6 @@ export default async function ShowTableDetail() {
     url: '/transaksi-pengeluaran-barang-detail',
   })
 
+  console.log(res)
   return <TablePengeluaranDetail data={res.data} />
 }
