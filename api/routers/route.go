@@ -28,4 +28,8 @@ func RegisterRoute(e *echo.Echo) {
 	e.POST("/add-penerimaan-barang-detail", handlers.SetTransaksiPenerimaanBarangDetail)
 
 	e.GET("/transaksi-pengeluaran-barang-header", handlers.GetTransaksiPengeluaranBarangHeader)
+	e.POST("/add-pengeluaran-barang-header", handlers.SetTransaksiPengeluaranBarangHeader)
+
+	e.GET("/transaksi-pengeluaran-barang-detail", handlers.GetTransaksiPengeluaranBarangDetail)
+	e.POST("/add-pengeluaran-barang-detail", handlers.SetTransaksiPengeluaranBarangDetail)
 }
