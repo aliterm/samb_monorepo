@@ -8,30 +8,29 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func GetMasterCustomer(c echo.Context) error {
-
-	var customers []models.MasterCustomer
-	result := config.DB.Find(&customers)
+func GetMasterSupplier(c echo.Context) error {
+	var suppliers []models.MasterSupplier
+	result := config.DB.Find(&suppliers)
 
 	if result.Error != nil {
 		return c.JSON(http.StatusInternalServerError, result.Error)
 	}
 
-	return c.JSON(http.StatusOK, result)
+	return c.JSON(http.StatusOK, suppliers)
 }
 
-func SetMasterCustomer(c echo.Context) error {
+func SetMasterSupplier(c echo.Context) error {
 
-	customer := new(models.MasterCustomer)
-	if err := c.Bind(customer); err != nil {
+	supplier := new(models.MasterSupplier)
+	if err := c.Bind(supplier); err != nil {
 		return c.JSON(http.StatusBadRequest, map[string]string{
 			"message": "Invalid request body",
 		})
 	}
-	result := config.DB.Create(&customer)
+	result := config.DB.Create(&supplier)
 	if result.Error != nil {
 		return c.JSON(http.StatusInternalServerError, result.Error)
 	}
-	return c.JSON(http.StatusCreated, customer)
+	return c.JSON(http.StatusCreated, supplier)
 
 }
