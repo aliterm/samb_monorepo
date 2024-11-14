@@ -1,0 +1,8 @@
+HOST=127.0.0.1
+PORT=3030
+
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_NAME=samb_inventory
+DB_USER=postgres
+DB_PASSWORD=
