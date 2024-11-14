@@ -1,7 +1,7 @@
 package models
 
 type TransaksiPengeluaranBarangDetail struct {
-	TrxOutDPK         uint `json:"trx_out_dpk"`
+	TrxOutDPK         uint `json:"trx_out_dpk" gorm:"primaryKey"`
 	TrxOutIDF         uint `json:"trx_out_idf"`
 	TrxOutDProductIdf uint `json:"trx_out_d_product_idf"`
 	TrxOutDQtyDus     uint `json:"trx_out_d_qty_dus"`
