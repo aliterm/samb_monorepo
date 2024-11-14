@@ -17,6 +17,7 @@ func main() {
 
 	routers.RegisterRoute(e)
 	config.ConnectDB()
+	config.AutoMigration()
 
 	e.Logger.Fatal(e.Start(host + ":" + port))
 }
