@@ -43,7 +43,7 @@ export default function AddPengeluaranBarangDetail() {
       <Modal show={openModal} size="md" onClose={onCloseModal} popup>
         <Modal.Header />
         <Modal.Body>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)} className="flex max-w-md flex-col gap-4">
             <div className="mb-6">
               <div className="mb-2 block">
                 <Label htmlFor="trx_out_idf" value="ID Pengeluaran Barang" />

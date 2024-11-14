@@ -1,6 +1,7 @@
 import fetcher from '@/helpers/fetcher'
 import TableProduct from './table'
 import { MasterSupplier } from '@/interfaces/master-supplier'
+import AddSupplier from './add-detail'
 
 export default async function MasterSupplierPage() {
   const res = await fetcher<MasterSupplier[]>({
@@ -11,8 +12,10 @@ export default async function MasterSupplierPage() {
   return (
     <>
       <h2 className="text-2xl font-bold my-5">Master Supplier</h2>
-      <div className="overflow-x-auto"></div>
-      <TableProduct data={res.data} />
+      <AddSupplier />
+      <div className="overflow-x-auto">
+        <TableProduct data={res.data} />
+      </div>
     </>
   )
 }
