@@ -21,5 +21,11 @@ func RegisterRoute(e *echo.Echo) {
 	e.GET("/master-warehouse", handlers.GetMasterWarehouse)
 	e.POST("/master-warehouse", handlers.SetMasterWarehouse)
 
-	e.GET("/transaksi-penerimaan-barang", handlers.GetTransaksiPenerimaanBarang)
+	e.GET("/transaksi-penerimaan-barang-header", handlers.GetTransaksiPenerimaanBarangHeader)
+	e.POST("/add-penerimaan-barang-header", handlers.SetTransaksiPenerimaanBarangHeader)
+
+	e.GET("/transaksi-penerimaan-barang-detail", handlers.GetTransaksiPenerimaanBarangDetail)
+	e.POST("/add-penerimaan-barang-detail", handlers.SetTransaksiPenerimaanBarangDetail)
+
+	e.GET("/transaksi-pengeluaran-barang-header", handlers.GetTransaksiPengeluaranBarangHeader)
 }

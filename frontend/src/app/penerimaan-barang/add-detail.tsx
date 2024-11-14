@@ -3,8 +3,8 @@
 import { Button, Modal } from 'flowbite-react'
 import { useState } from 'react'
 
-export default function AddPenerimaanBarang() {
-  const [openModal, setOpenModal] = useState(true)
+export default function AddPenerimaanBarangDetail() {
+  const [openModal, setOpenModal] = useState(false)
   const [email, setEmail] = useState('')
 
   function onCloseModal() {
@@ -13,9 +13,7 @@ export default function AddPenerimaanBarang() {
   }
   return (
     <>
-      <Button color="blue" onClick={() => setOpenModal(true)}>
-        Tambah
-      </Button>
+      <Button onClick={() => setOpenModal(true)}>Tambah Detail Barang</Button>
       <Modal show={openModal} size="md" onClose={onCloseModal} popup>
         <Modal.Header />
         <Modal.Body>

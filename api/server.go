@@ -22,6 +22,10 @@ func main() {
 		AllowMethods: []string{echo.GET, echo.HEAD, echo.PUT, echo.PATCH, echo.POST, echo.DELETE},
 	}))
 
+	// Middleware
+	e.Use(middleware.Logger())
+	e.Use(middleware.Recover())
+
 	routers.RegisterRoute(e)
 	config.ConnectDB()
 	config.AutoMigration()
