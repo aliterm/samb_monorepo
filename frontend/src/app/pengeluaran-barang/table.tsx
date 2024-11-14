@@ -13,6 +13,7 @@ export default function TablePengeluaranDetail({ data }: TablePengeluaranProps) 
     <Table hoverable>
       <Table.Head>
         <Table.HeadCell>ID</Table.HeadCell>
+        <Table.HeadCell>Nomor</Table.HeadCell>
         <Table.HeadCell>Warehouse</Table.HeadCell>
         <Table.HeadCell>Supplier</Table.HeadCell>
         <Table.HeadCell>Product</Table.HeadCell>
@@ -27,8 +28,9 @@ export default function TablePengeluaranDetail({ data }: TablePengeluaranProps) 
         {data?.map((pengeluaran, key) => (
           <Table.Row key={`customer-${key}`} className="bg-white dark:border-gray-700 dark:bg-gray-800">
             <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-              {pengeluaran.trx_out_no}
+              {pengeluaran.trx_out_dpk}
             </Table.Cell>
+            <Table.Cell>{pengeluaran.trx_out_no}</Table.Cell>
             <Table.Cell>{pengeluaran.warehouse_name}</Table.Cell>
             <Table.Cell>{pengeluaran.supplier_name}</Table.Cell>
             <Table.Cell>{pengeluaran.product_name}</Table.Cell>

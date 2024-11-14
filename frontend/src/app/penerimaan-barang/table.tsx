@@ -13,6 +13,7 @@ export default function TablePenerimaanDetail({ data }: TablePenerimaanProps) {
     <Table hoverable>
       <Table.Head>
         <Table.HeadCell>ID</Table.HeadCell>
+        <Table.HeadCell>Nomor</Table.HeadCell>
         <Table.HeadCell>Warehouse</Table.HeadCell>
         <Table.HeadCell>Supplier</Table.HeadCell>
         <Table.HeadCell>Product</Table.HeadCell>
@@ -29,6 +30,7 @@ export default function TablePenerimaanDetail({ data }: TablePenerimaanProps) {
             <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
               {penerimaan.trx_in_dpk}
             </Table.Cell>
+            <Table.Cell>{penerimaan.trx_in_no}</Table.Cell>
             <Table.Cell>{penerimaan.warehouse_name}</Table.Cell>
             <Table.Cell>{penerimaan.supplier_name}</Table.Cell>
             <Table.Cell>{penerimaan.product_name}</Table.Cell>
