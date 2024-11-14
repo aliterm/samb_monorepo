@@ -5,6 +5,8 @@ const fetcher = async <T = unknown>(params: FetcherParams): Promise<APIResponse<
     const { headers, method, url, body, cache } = params
     const defaultHeaders: HeadersInit = {
       'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      Accept: 'application/json',
       ...headers,
     }
 
