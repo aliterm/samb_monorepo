@@ -1,0 +1,440 @@
+{
+	"info": {
+		"_postman_id": "20578565-0298-496b-ab53-df286f7cf422",
+		"name": "SAMB Inventory",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12470162"
+	},
+	"item": [
+		{
+			"name": "Add Master Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customer_name\": \"Halo Bandung 2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3030/master-customer",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"master-customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Master Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_name\": \"iPhone 15\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3030/master-product",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"master-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Master Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/master-product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"master-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Master Supplier",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/master-supplier",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"master-supplier"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Master Warehouse",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/master-warehouse",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"master-warehouse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Master Customer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/master-customer?pageSize=1&page=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"master-customer"
+					],
+					"query": [
+						{
+							"key": "pageSize",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Master Warehouse",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"whs_name\": \"Eraphone Warehouse\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3030/master-warehouse",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"master-warehouse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Master Supplier",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"supplier_name\": \"Eraphone\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3030/master-supplier",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"master-supplier"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tambah Penerima Barang Header",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"trx_in_no\": \"horas\",\n    \"whs_idf\": 1,\n    \"trx_in_date\": \"2024-11-13\",\n    \"trx_in_supp_idf\": 1\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/add-penerimaan-barang-header",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"add-penerimaan-barang-header"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tambah Pengeluaran Barang Header",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"trx_out_no\": \"gas\",\n    \"whs_idf\": 1,\n    \"trx_out_date\": \"2024-11-13\",\n    \"trx_out_supp_idf\": 1,\n    \"trx_out_notes\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/add-pengeluaran-barang-header",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"add-pengeluaran-barang-header"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tambah Penerima Barang Detail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"trx_in_d_product_idf\": 1,\n    \"trx_in_id_f\": 1,\n    \"trx_in_d_dus\": 1,\n    \"trx_in_d_pcs\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/add-penerimaan-barang-detail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"add-penerimaan-barang-detail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tambah Pengeluaran Barang Detail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"trx_out_id_f\": 1,\n    \"trx_out_d_product_idf\": 1,\n    \"trx_out_d_qty_dus\": 1,\n    \"trx_out_d_qty_pcs\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/add-pengeluaran-barang-detail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"add-pengeluaran-barang-detail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Penerima Barang Header",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"trx_in_no\": \"horas\",\n    \"whs_idf\": 1,\n    \"trx_in_date\": \"2024-11-13\",\n    \"trx_in_supp_idf\": 1\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/transaksi-penerimaan-barang-header",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"transaksi-penerimaan-barang-header"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Penerimaan Barang Detail",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"trx_in_no\": \"horas\",\n    \"whs_idf\": 1,\n    \"trx_in_date\": \"2024-11-13\",\n    \"trx_in_supp_idf\": 1\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/transaksi-penerimaan-barang-detail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"transaksi-penerimaan-barang-detail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Pengeluaran Barang Header",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"trx_in_no\": \"horas\",\n    \"whs_idf\": 1,\n    \"trx_in_date\": \"2024-11-13\",\n    \"trx_in_supp_idf\": 1\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/transaksi-pengeluaran-barang-header",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"transaksi-pengeluaran-barang-header"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Pengeluaran Barang Detai",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"trx_in_no\": \"horas\",\n    \"whs_idf\": 1,\n    \"trx_in_date\": \"2024-11-13\",\n    \"trx_in_supp_idf\": 1\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/transaksi-pengeluaran-barang-detail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"transaksi-pengeluaran-barang-detail"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
