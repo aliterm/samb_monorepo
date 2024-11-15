@@ -2,13 +2,47 @@
 
 import fetcher from '@/helpers/fetcher'
 import { PenerimaanBarangHeader } from '@/interfaces/penerimaan-barang-header'
-import { Button, Label, Modal, TextInput } from 'flowbite-react'
-import { url } from 'inspector'
-import { useState } from 'react'
+import { Button, Label, Modal, Select, TextInput } from 'flowbite-react'
+
+import { useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
+
+import { MasterWarehouse } from '@/interfaces/master-warehouse'
+import { useRouter } from 'next/navigation'
+import { MasterSupplier } from '@/interfaces/master-supplier'
 
 export default function AddPenerimaanBarangHeader() {
   const [openModal, setOpenModal] = useState(false)
+
+  const [_, setLoading] = useState(false)
+  const [warehouses, setWarehouses] = useState<MasterWarehouse[] | undefined>()
+  const [suppliers, setSuppliers] = useState<MasterSupplier[] | undefined>()
+
+  const router = useRouter()
+
+  useEffect(() => {
+    ;(async () => {
+      setLoading(true)
+      const res = await fetcher<MasterWarehouse[]>({
+        method: 'GET',
+        url: '/master-warehouse',
+      })
+      if (res.data) {
+        setWarehouses(res.data)
+      }
+
+      const res2 = await fetcher<MasterSupplier[]>({
+        method: 'GET',
+        url: '/master-supplier',
+      })
+
+      if (res2.data) {
+        setSuppliers(res2.data)
+      }
+
+      setLoading(false)
+    })()
+  }, [openModal])
 
   function onCloseModal() {
     setOpenModal(false)
@@ -18,6 +52,7 @@ export default function AddPenerimaanBarangHeader() {
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors },
   } = useForm<PenerimaanBarangHeader>()
 
@@ -35,6 +70,7 @@ export default function AddPenerimaanBarangHeader() {
     })
 
     setOpenModal(false)
+    router.refresh()
   }
 
   return (
@@ -53,14 +89,28 @@ export default function AddPenerimaanBarangHeader() {
               <TextInput id="trx_in_no" {...register('trx_in_no', { required: true })} />
             </div>
 
-            <div>
+            <div className="max-w-md">
+              <TextInput id="whs_idf" {...register('whs_idf', { required: true })} type="hidden" />
+
               <div className="mb-2 block">
-                <Label htmlFor="whs_idf" value="Gudang" />
+                <Label htmlFor="warehouses" value="Pilih Gudang" />
               </div>
-              <TextInput id="whs_idf" {...register('whs_idf', { required: true })} type="number" />
+              <Select
+                id="warehouses"
+                onChange={(evt) => {
+                  console.log(evt.currentTarget.value)
+                  setValue('whs_idf', Number(evt.currentTarget.value))
+                }}
+              >
+                {warehouses?.map((warehouse) => (
+                  <option key={`warehouse-${warehouse.whs_pk}`} value={warehouse.whs_pk}>
+                    {warehouse.whs_name}
+                  </option>
+                ))}
+              </Select>
             </div>
 
-            <div>
+            <div className="max-w-md">
               <div className="mb-2 block">
                 <Label htmlFor="trx_in_date" value="Tanggal Transaksi" />
               </div>
@@ -68,10 +118,23 @@ export default function AddPenerimaanBarangHeader() {
             </div>
 
             <div>
+              <TextInput id="trx_in_supp_idf" {...register('trx_in_supp_idf', { required: true })} type="hidden" />
               <div className="mb-2 block">
-                <Label htmlFor="trx_in_supp_idf" value="Supplier" />
+                <Label htmlFor="suppliers" value="Pilih Supplier" />
               </div>
-              <TextInput id="trx_in_supp_idf" {...register('trx_in_supp_idf', { required: true })} type="number" />
+              <Select
+                id="suppliers"
+                onChange={(evt) => {
+                  console.log(evt.currentTarget.value)
+                  setValue('trx_in_supp_idf', Number(evt.currentTarget.value))
+                }}
+              >
+                {suppliers?.map((supplier) => (
+                  <option key={`supplier-${supplier.supplier_pk}`} value={supplier.supplier_pk}>
+                    {supplier.supplier_name}
+                  </option>
+                ))}
+              </Select>
             </div>
 
             <div>
